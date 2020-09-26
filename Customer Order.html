@@ -111,6 +111,7 @@
       } 
     th,td
     {
+        border-radius: 8px;
         border: 1px groove white;
         height: 30px;
     }
@@ -225,17 +226,26 @@
                 <th>اسم الفني</th>
             </tr>
         <tr>
-            <td> <input type="button" id="btntable" value="إرسال الطلب" ></td>
-            <td>اسم الفني</td>
-            <td>التقييم</td>
-            <td>المنطقة</td>
-            <td>عدد الطلبات</td>
+            <td><button type="button" id="btntable" onclick="sendorder(this)"  >إرسال الطلب</button></td>
+            <td>5</td>
+            <td>المرج</td>
+            <td>4 نجوم</td>
+            <td>محمد</td>
+            
+        </tr>
+        <tr>
+           
+            <td ><button type="button" id="btntable" onclick="sendorder(this)"  >إرسال الطلب</button></td>
+            <td>10</td>
+            <td>عين شمس</td>
+            <td>5 نجوم</td>
+            <td>احمد</td>
             
         </tr>
       
+      
+    </table>
 
-
-      </table>
       <br><br><br><br>
      
         </fieldset>
@@ -270,6 +280,32 @@
      {
       
             document.getElementById("table").hidden=false;
+             // // add table rows
+        // var tb=document.getElementById("table")
+        // var row=tb.insertRow(2)
+        // var cell1=row.insertCell(0)
+        // var cell2=row.insertCell(1)
+        // var cell3=row.insertCell(2)
+        // var cell4=row.insertCell(3)
+        // var cell5=row.insertCell(4)
+        // cell5.innerHTML="hhhhh"
+     }
+
+     function sendorder(v)
+     {
+        var t=document.getElementById("table");
+      //  alert(v.parentNode.cellIndex+ "dddd" +v.parentNode.parentNode.rowIndex)
+      // to get اسم الفني
+      alert(t.rows[v.parentNode.parentNode.rowIndex].cells[4].innerHTML);
+      // to get التقييم
+      alert(t.rows[v.parentNode.parentNode.rowIndex].cells[3].innerHTML);
+      // to get المنطقة
+      alert(t.rows[v.parentNode.parentNode.rowIndex].cells[2].innerHTML);
+      // to get عدد الطلبات
+      alert(t.rows[v.parentNode.parentNode.rowIndex].cells[1].innerHTML);
+   
+        
+
      }
   
     </script>
