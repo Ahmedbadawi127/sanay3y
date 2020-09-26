@@ -163,46 +163,46 @@ cursor: pointer;
     
     // -------------------
 
-//     var data = [
-// {
-//   orderNumber: "00001", 
-//   teckNAme: "Ahmed", 
-//   phone: "010056456464", 
-//   orderDate: "01-12-2017",
-//   orderStatus: "draft",
-//   ForReject: "Button",
+    var data = [
+{
+  orderNumber: "00001", 
+  teckNAme: "Ahmed", 
+  phone: "010056456464", 
+  orderDate: "01-12-2017",
+  orderStatus: "draft",
+  ForReject: "Button",
 
-// },{
-//     orderNumber: "00002", 
-//     teckNAme: "Mohamed", 
-//     phone: "01456456456", 
-//     orderDate: "01-12-2017",
-//     orderStatus: "Approved",
-//     ForReject: "Button",
+},{
+    orderNumber: "00002", 
+    teckNAme: "Mohamed", 
+    phone: "01456456456", 
+    orderDate: "01-12-2017",
+    orderStatus: "Approved",
+    ForReject: "Button",
 
-// },{
-//     orderNumber: "00003", 
-//     teckNAme: "Sabry",
-//     phone: "015645646",
-//     orderDate: "01-12-2017",
-//     orderStatus: "In Processing",
-//     ForReject: "Button",
+},{
+    orderNumber: "00003", 
+    teckNAme: "Sabry",
+    phone: "015645646",
+    orderDate: "01-12-2017",
+    orderStatus: "In Processing",
+    ForReject: "Button",
 
-// }
-// ];
+}
+];
 
 var tableBody = "";
 var columns = [];
 
 tableBody = tableBody + "<tr>";
-$.getJSON('mydata.json', function(data) {
+
     for(var prop in data[0]) {
   if(data[0].hasOwnProperty(prop)) {
     tableBody = tableBody + ("<th>" + prop + "</th>");
     
     columns.push(prop);
-  }
-}
+  
+
 
 tableBody = tableBody + "</tr>";
 data.forEach(function(row) {
