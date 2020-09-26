@@ -299,6 +299,7 @@
         // cell5.innerHTML="hhhhh"
      }
      var count_order=0
+     order_arr=[]
      function sendorder(v)
 {
     var t=document.getElementById("table");
@@ -306,24 +307,41 @@
     var describe=document.getElementById("describe").value
     var date=document.getElementById("date").value
     var tec_name=t.rows[v.parentNode.parentNode.rowIndex].cells[4].innerHTML
-    
     var order =new Orders(++count_order,us_name,describe,date,tec_name,"قيد التنفيذ")
-   
-
+    try{
+    order_arr.push(order) 
+    alert("تم إرسال الطلب ،، سيتم الرد خلال 2 ساعة")
+    }
+    catch{
+        alert ("لم يتم إضافة الطلب ،، الرجاء المحاولة في وقت لاحق")
+    }
     
-    console.log(order)
-    console.log(count_orders)
+                                        // for (let i=0 ; i<=order_arr.length;i++)
+                                    // {
+                                //  }
+                                
+                                // 
+                                //    var n=prompt("enter order number")
+                                //     console.log(order_arr[n])
+                                //console.log(order_arr)
+// البحث في الطلبات
+    // let order_cus_number = order_arr.filter(order => order.tech_name === "محمد");
 
-
+    // console.log(order_cus_number)
     
-//    var json_orde=JSON.stringify(order)
-//    console.log(json_orde)
-    //get order by number
-    //var n=prompt("enter order number")
-   // console.log(order.getorder(n))
-   
+                                // for (let i=0 ; i<order_arr.length;i++)
+                                // {
+                                //   console.log(order_arr[i])
+                                //   //console.log(order_arr[i]["cus_name"])
+                                // }
+                                           
+                                    //    var json_orde=JSON.stringify(order)
+                                    //    console.log(json_orde)
+                                        //get order by number
+                                    //     var n=prompt("enter order number")
+                                    //    console.log(order.getorder(n))
+                                    
 
-   
  
 //  // to get اسم الفني
 //  alert(t.rows[v.parentNode.parentNode.rowIndex].cells[4].innerHTML);
