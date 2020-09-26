@@ -199,11 +199,9 @@ tableBody = tableBody + "<tr>";
     for(var prop in data[0]) {
   if(data[0].hasOwnProperty(prop)) {
     tableBody = tableBody + ("<th>" + prop + "</th>");
-    
+  }
     columns.push(prop);
   
-
-
 tableBody = tableBody + "</tr>";
 data.forEach(function(row) {
   tableBody = tableBody + "<tr>";
@@ -215,7 +213,7 @@ data.forEach(function(row) {
   tableBody = tableBody + "</tr>";
 });
 $(".tabcontent").append(tableBody);
-});
+  }
 
 </script>
 </body>
