@@ -3,7 +3,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>orders view</title>
+<<<<<<< HEAD
 
+=======
+    <link rel="stylesheet" href="styles.css">
+>>>>>>> ibrahim
     <style>
       body {font-family: Arial;}
       
@@ -12,6 +16,11 @@
         overflow: hidden;
         border: 1px solid #ccc;
         background-color: #f1f1f1;
+<<<<<<< HEAD
+=======
+        margin-left: 20%;
+        width: 55%;
+>>>>>>> ibrahim
       }
       
       /* Style the buttons inside the tab */
@@ -28,7 +37,11 @@
       
       /* Change background color of buttons on hover */
       .tab button:hover {
+<<<<<<< HEAD
         background-color: #ddd;
+=======
+        background-color: green;
+>>>>>>> ibrahim
       }
       
       /* Create an active/current tablink class */
@@ -40,6 +53,7 @@
       .tabcontent {
         display: none;
         padding: 6px 12px;
+<<<<<<< HEAD
         border: 1px solid #ccc;
         border-top: none;
       }
@@ -47,6 +61,19 @@
       table {
 border-collapse: collapse;
 width: 100%;
+=======
+        border-top: none;
+        margin: auto;
+        width: 60%;
+  
+
+      }
+      
+      table {
+  border-collapse: collapse;
+width: 70%;
+
+>>>>>>> ibrahim
 }
 
 th, td {
@@ -75,25 +102,53 @@ cursor: pointer;
 </style>
 </head>
 <body>
+<<<<<<< HEAD
     
 <h2>Tabs</h2>
 <p>عااااااا</p>
 
 <div class="tab">
+=======
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div>
+  <div id="Logo">
+      <img src="Logo.png" width="120px" height="120px">
+      <p style="margin-top: -20px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">صنايعي</p>
+  </div>
+  <div id="User">
+      <img src="user.png" width="100px" height="100px">
+      <p id="username" style="margin-top: -15px;">اسم المستخدم</p>
+  </div>
+<img id="imghead" src="back.png">
+</div>
+  
+<h2>طلبات العميل</h2>
+<p>استعراض تفاصيل طلباتك السابقه والحاليه</p>
+<div id="parent">
+  <div class="tab" id="form">
+>>>>>>> ibrahim
   <button class="tablinks" onclick="openTap(event, 'ordersAll')">كل الطلبات</button>
   <button class="tablinks" onclick="openTap(event, 'ordersApproved')">الطلبات تمت الموافقه عليها</button>
   <button class="tablinks" onclick="openTap(event, 'ordersInProcessing')">الطلبات قيد التنفيذ</button>
   <button class="tablinks" onclick="openTap(event, 'ordersRejected')">طلبات تم رفضها</button>
+<<<<<<< HEAD
 
+=======
+>>>>>>> ibrahim
 </div>
 
 <div id="ordersAll" class="tabcontent">
   <h3>كل الطلبات</h3>
+<<<<<<< HEAD
   <p>وصف</p>
+=======
+>>>>>>> ibrahim
 </div>
 
 <div id="ordersApproved" class="tabcontent">
   <h3>الطلبات تمت الموافقه عليها</h3>
+<<<<<<< HEAD
   <p>ordersApproved Table</p> 
   <table class="ordersTable">
     <tr>
@@ -113,10 +168,13 @@ cursor: pointer;
       <td>button</td>
     </tr>
   </table>
+=======
+>>>>>>> ibrahim
 </div>
 
 <div id="ordersInProcessing" class="tabcontent">
   <h3>الطلبات قيد التنفيذ</h3>
+<<<<<<< HEAD
   <p>ordersInProcessing Table</p>
   <table class="ordersTable">
     <tr>
@@ -136,10 +194,13 @@ cursor: pointer;
       <td>button</td>
     </tr>
   </table>
+=======
+>>>>>>> ibrahim
 </div>
 
 <div id="ordersRejected" class="tabcontent">
     <h3>طلبات تم رفضها</h3>
+<<<<<<< HEAD
     <p>ordersRejected Table</p>
     <table class="ordersTable">
         <tr>
@@ -160,6 +221,11 @@ cursor: pointer;
         </tr>
       </table>
   </div>
+=======
+  </div>
+</div>
+
+>>>>>>> ibrahim
 
 
 <script>
@@ -176,6 +242,7 @@ cursor: pointer;
       document.getElementById(orderType).style.display = "block";
       evt.currentTarget.className += " active";
 
+<<<<<<< HEAD
     }
       var table = '';
       var rows = 2;
@@ -191,6 +258,87 @@ cursor: pointer;
       }
       document.write('<table border=1>' + table + '</table>');
     
+=======
+
+      
+
+
+    }
+      
+    // var table = '';
+    //   var rows = 2;
+    //   var cols = 6;
+    //   for(var r = 0; r < rows; r++)
+    //   {
+    //     table += '<tr>';
+    //     for(var c = 1; c <= cols; c++)
+    //     {
+    //       table += '<td>' + c + '<td>'
+    //     }
+    //     table += '</tr>'
+    //   }
+    //   var tableTag = '<table border=1>' + table + '</table>';
+    //   document.write(tableTag)
+    //   var tableId = document.getElementById("ordersAll")
+    //   tableId.appendChild(tableTag);
+    
+    // -------------------
+
+//     var data = [
+// {
+//   orderNumber: "00001", 
+//   teckNAme: "Ahmed", 
+//   phone: "010056456464", 
+//   orderDate: "01-12-2017",
+//   orderStatus: "draft",
+//   ForReject: "Button",
+
+// },{
+//     orderNumber: "00002", 
+//     teckNAme: "Mohamed", 
+//     phone: "01456456456", 
+//     orderDate: "01-12-2017",
+//     orderStatus: "Approved",
+//     ForReject: "Button",
+
+// },{
+//     orderNumber: "00003", 
+//     teckNAme: "Sabry",
+//     phone: "015645646",
+//     orderDate: "01-12-2017",
+//     orderStatus: "In Processing",
+//     ForReject: "Button",
+
+// }
+// ];
+
+var tableBody = "";
+var columns = [];
+
+tableBody = tableBody + "<tr>";
+$.getJSON('mydata.json', function(data) {
+    for(var prop in data[0]) {
+  if(data[0].hasOwnProperty(prop)) {
+    tableBody = tableBody + ("<th>" + prop + "</th>");
+    
+    columns.push(prop);
+  }
+}
+
+tableBody = tableBody + "</tr>";
+data.forEach(function(row) {
+  tableBody = tableBody + "<tr>";
+
+  columns.forEach(function(cell) {
+
+    tableBody = tableBody + "<td>" + row[cell] + "</td>";
+  });
+  tableBody = tableBody + "</tr>";
+});
+$(".tabcontent").append(tableBody);
+});
+
+>>>>>>> ibrahim
 </script>
 </body>
 </html>

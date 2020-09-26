@@ -5,8 +5,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Customer Order</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script> -->
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
+    <script src='Scripts.js'></script> 
+    <script type="text/javascript" src="data.json"></script>
     <style>
      #Logo 
      {         
@@ -213,7 +214,7 @@
             <br><br><br>
             <textarea rows="4" cols="97" id="describe" placeholder="اكتب وصف عن المشكلة التي تواجهك"></textarea><br>
              <!-- <input type="button" id="btnsearch" value="بحث" onclick="showtable()"><br><br><br> -->
-             <button type="button" onclick="showtable()" id="btnsearch" ><img id="imgsearch" src="search.png" width="100px" height="50px"></button>
+             <button type="button" onclick="search()" id="btnsearch" ><img id="imgsearch" src="search.png" width="100px" height="50px"></button>
              <br><br>
              
         </form>
@@ -276,11 +277,18 @@
 
         }
        
-     function showtable()
+     function search()
      {
-      
-            document.getElementById("table").hidden=false;
-             // // add table rows
+            if (document.getElementById("date").value == "")
+            {
+                alert("يجب إدخال تاريخ تقديم الخدمة")
+            }
+            else
+            {
+                document.getElementById("table").hidden=false;
+            }
+            
+         // add table rows
         // var tb=document.getElementById("table")
         // var row=tb.insertRow(2)
         // var cell1=row.insertCell(0)
@@ -290,23 +298,45 @@
         // var cell5=row.insertCell(4)
         // cell5.innerHTML="hhhhh"
      }
-
+     var count_order=0
      function sendorder(v)
-     {
-        var t=document.getElementById("table");
-      //  alert(v.parentNode.cellIndex+ "dddd" +v.parentNode.parentNode.rowIndex)
-      // to get اسم الفني
-      alert(t.rows[v.parentNode.parentNode.rowIndex].cells[4].innerHTML);
-      // to get التقييم
-      alert(t.rows[v.parentNode.parentNode.rowIndex].cells[3].innerHTML);
-      // to get المنطقة
-      alert(t.rows[v.parentNode.parentNode.rowIndex].cells[2].innerHTML);
-      // to get عدد الطلبات
-      alert(t.rows[v.parentNode.parentNode.rowIndex].cells[1].innerHTML);
+{
+    var t=document.getElementById("table");
+    var us_name=document.getElementById("username").innerHTML
+    var describe=document.getElementById("describe").value
+    var date=document.getElementById("date").value
+    var tec_name=t.rows[v.parentNode.parentNode.rowIndex].cells[4].innerHTML
+    
+    var order =new Orders(++count_order,us_name,describe,date,tec_name,"قيد التنفيذ")
    
-        
 
-     }
+    
+    console.log(order)
+    console.log(count_orders)
+
+
+    
+//    var json_orde=JSON.stringify(order)
+//    console.log(json_orde)
+    //get order by number
+    //var n=prompt("enter order number")
+   // console.log(order.getorder(n))
+   
+
+   
+ 
+//  // to get اسم الفني
+//  alert(t.rows[v.parentNode.parentNode.rowIndex].cells[4].innerHTML);
+//  // to get التقييم
+//  alert(t.rows[v.parentNode.parentNode.rowIndex].cells[3].innerHTML);
+//  // to get المنطقة
+//  alert(t.rows[v.parentNode.parentNode.rowIndex].cells[2].innerHTML);
+//  // to get عدد الطلبات
+//  alert(t.rows[v.parentNode.parentNode.rowIndex].cells[1].innerHTML);
+
+   
+
+}
   
     </script>
 </body>
