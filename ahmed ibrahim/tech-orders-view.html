@@ -41,41 +41,60 @@ var head = [
     "العنوان",
     "وصف المشكله",
 ]
-var data = [
+
+// var dataObj = [
+// {
+//   "orderNumber": "00001", 
+//   "customer": "ahmed customer",
+//   "phone": "010056456464", 
+//   "governent": "giza",
+//   "area": "haram",
+//   "address": "shaaban shalaby - haram - giza",
+//   "orderDate": "01-12-2017",
+//   "discription": "مشكله عويصه جدا جدا جدا وتلاجه بايظه وخربانه",
+
+// },{
+//     "orderNumber": "00002", 
+//     "customer": "ahmed customer",
+//   "phone": "010056456464", 
+//   "governent": "giza",
+//   "area": "haram",
+//   "address": "shaaban shalaby - haram - giza",
+//   "orderDate": "01-12-2017",
+//   "discription": "مشكله عويصه جدا جدا جدا وتلاجه بايظه وخربانه",
+
+// },{
+//     "orderNumber": "00003", 
+//     "customer": "mohamed customer",
+//   "phone": "010056456464", 
+//   "governent": "giza",
+//   "area": "haram",
+//   "address": "shaaban shalaby - haram - giza",
+//   "orderDate": "01-12-2017",
+//   "discription": " مشكله عويصه جدا جدا جدا وتلاجه بايظه وخربانه وبايظه وخربانه وبايظه وهيييييه ويلاااا ويلا بينا يا سطر يلا يبينا يلا بينا وهييييييييييه ويلا بينا هيييييييييييييه وسطر كمان عشا نالحبايب وكمان سطر عشان حبايب الحبايب",
+// }
+// ];
+
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var data = JSON.parse(xmlhttp.responseText);
+
+   for(i = 0; i < 3; i++)
+   {
+      Func(data.data, head, i)
+   }
+  }
+};
+
+xmlhttp.open("GET", "mydata.json", true);
+xmlhttp.send();
+
+
+
+function Func(data, head, i)
 {
-  "orderNumber": "00001", 
-  "customer": "ahmed customer",
-  "phone": "010056456464", 
-  "governent": "giza",
-  "area": "haram",
-  "address": "shaaban shalaby - haram - giza",
-  "orderDate": "01-12-2017",
-  "discription": "مشكله عويصه جدا جدا جدا وتلاجه بايظه وخربانه",
-
-},{
-    "orderNumber": "00002", 
-    "customer": "ahmed customer",
-  "phone": "010056456464", 
-  "governent": "giza",
-  "area": "haram",
-  "address": "shaaban shalaby - haram - giza",
-  "orderDate": "01-12-2017",
-  "discription": "مشكله عويصه جدا جدا جدا وتلاجه بايظه وخربانه",
-
-},{
-    "orderNumber": "00003", 
-    "customer": "mohamed customer",
-  "phone": "010056456464", 
-  "governent": "giza",
-  "area": "haram",
-  "address": "shaaban shalaby - haram - giza",
-  "orderDate": "01-12-2017",
-  "discription": " مشكله عويصه جدا جدا جدا وتلاجه بايظه وخربانه وبايظه وخربانه وبايظه وهيييييه ويلاااا ويلا بينا يا سطر يلا يبينا يلا بينا وهييييييييييه ويلا بينا هيييييييييييييه وسطر كمان عشا نالحبايب وكمان سطر عشان حبايب الحبايب",
-}
-];
-
-$.each(data, function(i){
-    var templateString =
+  var templateString =
     '<table style="border: 3px solid grey;" dir="rtl" align="right" class="tableCard">'
     + '<tr>'
     + '<td colspan="1">' + head[0] + '</td>' 
@@ -125,7 +144,60 @@ $.each(data, function(i){
 
     + '</table>' + '<br>';
 $('#test').append(templateString);
-})
+}
+
+// $.each(data, function(i){
+//     var templateString =
+//     '<table style="border: 3px solid grey;" dir="rtl" align="right" class="tableCard">'
+//     + '<tr>'
+//     + '<td colspan="1">' + head[0] + '</td>' 
+//     + '<td colspan="1">' +data[i].orderNumber+'</td>'
+
+//     + '<td colspan="1">' + head[1] + '</td>' 
+//     + '<td colspan="1">' +data[i].customer+'</td>'
+
+//     + '<td colspan="1">' + head[2] + '</td>' 
+//     + '<td colspan="1">' +data[i].phone+'</td>'
+
+//     + '<td colspan="1" rowspan="2"><button style="height: 100px; width: 150px;" onclick="orderAccept()">الموافقه على الطلب</button></td>'
+//     + '</tr>' 
+    
+
+//     + '<tr>'
+//     + '<td colspan="1">' + head[3] + '</td>' 
+//     + '<td colspan="1">' +data[i].governent+'</td>'
+
+//     + '<td colspan="1">' + head[4] + '</td>' 
+//     + '<td colspan="1">' +data[i].area+'</td>'
+
+//     + '<td colspan="1">' + head[5] + '</td>' 
+//     + '<td colspan="1">' +data[i].orderDate+'</td>'
+
+//     + '<td colspan="1"></td>' 
+//     + '</tr>' 
+
+
+//     + '<tr>'
+//     + '<td colspan="1">' + head[6] + '</td>' 
+//     + '<td colspan="5">' +data[i].address+'</td>'
+//     + '<td colspan="1" rowspan="1"><button style="height: 50px; width: 150px;" onclick="orderRefuse()">رفض الطلب</button></td>'
+//     + '</tr>' 
+    
+
+//     + '<tr>'
+//     + '<td colspan="1">' + head[7] + '</td>' 
+//     + '<td colspan="6">' +data[i].discription+'</td>'
+//     + '</tr>' 
+
+//     + '<tr>'
+//     + '<td colspan="7"><p><br></p>'
+//     + '</td>'
+//     + '</tr>' 
+
+
+//     + '</table>' + '<br>';
+// $('#test').append(templateString);
+// })
 
 function orderRefuse()
 {
