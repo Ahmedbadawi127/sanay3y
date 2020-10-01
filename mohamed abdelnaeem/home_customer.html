@@ -110,7 +110,7 @@
     <br><br><br><br><br><br><br>
     <!-- <h1>-----------------------------------------------------------------------------------------------------------------------------</h1> -->
 
-        <button type="button" onclick="" id="btnquery" >استعلام عن طلب<img id="imgquery" src="search.png" width="100px" height="50px"></button>
+        <button type="button" onclick="window.location.replace('../ahmed ibrahim/customer-orders-view.html')" id="btnquery" >استعلام عن طلب<img id="imgquery" src="search.png" width="100px" height="50px"></button>
         <button type="button" onclick="showimg()" id="btnget" >تقديم طلب جديد<img id="imgget" src="request.png" width="100px" height="50px"></button>
         <br><br>
         <div>
@@ -134,6 +134,8 @@
        
      
     <script>
+    var currentLoginUser = sessionStorage.getItem('currenLoginUser')
+    document.getElementById("username").innerText = currentLoginUser;
 
        function showimg()
        {

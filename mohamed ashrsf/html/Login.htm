@@ -33,7 +33,7 @@
     <br>
     <!--Login Form -->
     <div class="login" >    
-        <form id="login" name='myform' onsubmit="setAction(this)" action="#" >    
+        <form id="login" name='myform' action="#" >    
             <label><b>من فضلك قم بإدخل اسم المستخدم او الإيميل     
             </b>    
             </label>    
@@ -44,7 +44,7 @@
             </label>    
             <input type="Password"  id="Pass" placeholder="ادخل الباسورد" required>    
             <br><br>    
-            <input type="submit" name="log" id="log" value="تسجيل الدخول" >       
+            <input type="submit" onclick="setAction(this)" name="log" id="log" value="تسجيل الدخول" >       
             <br><br>    
             <input type="button" id="goSigup" value="تسجيل مستخدم جديد" onclick="goSignUp()">        
         </form>     

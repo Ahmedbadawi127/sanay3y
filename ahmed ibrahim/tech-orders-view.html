@@ -15,7 +15,7 @@
   </div>
   <div id="User">
       <img src="user.png" width="100px" height="100px">
-      <p id="username" style="margin-top: -15px;">اسم المستخدم</p>
+      <p id="username" style="margin-top: -15px;"></p>
   </div>
 <img id="imgheadTech" src="back.png">
 </div>
@@ -42,6 +42,9 @@
 
   <p></p>
   <script>
+    var currentLoginUser = sessionStorage.getItem('currenLoginUser')
+    document.getElementById("username").innerText = currentLoginUser;
+    
     function openTapTech(evt, orderType) {
       var i, tabcontentTec, tablinksTec;
       tabcontentTec = document.getElementsByClassName("tabcontentTec");
@@ -227,18 +230,20 @@ function Func(data, headTech, i)
     var status = data[i].o_status;
     var tecName = data[i].tech_name;
     // console.log(data[i].status)
-    var currentLoginUser = "محمد إبراهيم أحمد"
+    // var currentLoginUser = "محمد إبراهيم أحمد"
+    
     // var CurrentLoginUser = sessionStorage.getItem('CurrentLoginUser')
     // && tecName == currentLoginUser
-    console.log(status)
+
     function allOrdersTech(status)
     {
+      if(tecName == currentLoginUser)
         $('#allOrdersTec').append(templateString);
     }
 
     function allOrdersApprovedTech(Status)
     {
-      if(Status == "معتمد")
+      if(Status == "معتمد" && tecName == currentLoginUser)
         $('#ordersApprovedTec').append(templateStringApproved);
     }
 

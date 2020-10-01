@@ -50,9 +50,13 @@
   </div>
 </div>
 
-<button style="height: 50px; width: 150px;" onclick="orderRefuse()">رفض الطلب</button>
+<!-- <button style="height: 50px; width: 150px;" onclick="orderRefuse()">رفض الطلب</button> -->
 
 <script>
+    var currentLoginUser = sessionStorage.getItem('currenLoginUser')
+    document.getElementById("username").innerText = currentLoginUser;
+
+
     function openTapCus(evt, orderType) {
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tabcontent");
@@ -179,14 +183,9 @@ function Func(data, headCus, i)
     
     var status = data[i].o_status;
     var cusName = data[i].cus_name;
-    var currentLoginUser = "على على على"
-    // var CurrentLoginUser = sessionStorage.getItem('CurrentLoginUser')
-    // && tecName == currentLoginUser
-    // function allOrdersCus(Status)
-    // {
-    //   if(Status != "rejected")
-    //     $('#allOrdersCus').append(templateStringAllOrdersCus);
-    // }
+    // var currentLoginUser = "على على على"
+    
+
 
 console.log(status)
     var templateStringInprocessingCus = templateStringAllOrdersCus;
@@ -195,24 +194,26 @@ console.log(status)
 
     function allOrdersCus(Status)
     {
+      // alert(currentLoginUser)
+      if(cusName == currentLoginUser)
         $('#allOrdersCus').append(templateStringAllOrdersCus);
     }
 
     function ordersInprocessingCus(Status)
     {
-      if(Status == "قيدالتنفيذ")
+      if(Status == "قيد التنفيذ" && cusName == currentLoginUser)
         $('#ordersInprocessingCus').append(templateStringInprocessingCus);
     }
 
     function ordersApprovedCus(Status)
     {
-      if(Status == "معتمد")
+      if(Status == "معتمد" && cusName == currentLoginUser)
         $('#ordersApprovedCus').append(templateStringApprovedCus);
     }
 
     function ordersRejectedCus(Status)
     {
-      if(Status == "مرفوض")
+      if(Status == "مرفوض" && cusName == currentLoginUser)
         $('#ordersRejectedCus').append(templateStringRejectedCus);
     }
 
