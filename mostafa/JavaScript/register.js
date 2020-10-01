@@ -219,7 +219,7 @@ function saveData(){
 
            // // POST request
            var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-            xmlhttp.open('POST', 'http://m0stafaeladawy01.pythonanywhere.com/UsersAccounts/');
+            xmlhttp.open('POST', 'http://m0stafaeladawy00.pythonanywhere.com/UsersAccounts/');
 
             // set `Content-Type` header
             xmlhttp.setRequestHeader('Content-Type', 'application/json');

@@ -1,3 +1,13 @@
+
+function emptyFields()
+{
+    document.getElementById('Uname').value = ""
+    document.getElementById('Pass').value = ""
+    var user_name=""
+    var password_user=""
+    sessionStorage.removeItem('currenLoginUser')
+}
+
 function setAction(form)
 {
     var user_name=document.getElementById('Uname').value
