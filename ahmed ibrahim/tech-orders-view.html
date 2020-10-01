@@ -230,10 +230,6 @@ function Func(data, headTech, i)
     var status = data[i].o_status;
     var tecName = data[i].tech_name;
     // console.log(data[i].status)
-    // var currentLoginUser = "محمد إبراهيم أحمد"
-    
-    // var CurrentLoginUser = sessionStorage.getItem('CurrentLoginUser')
-    // && tecName == currentLoginUser
 
     function allOrdersTech(status)
     {
@@ -253,17 +249,17 @@ function Func(data, headTech, i)
 }
 // var msg ='<br>' + 'رقم: ' + data[i].orderNumber + '<br>بإسم: ' + data[i].customer
 
-// function orderRefuse(i)
-// {
-//   data[i].status == "rejected"
-//     alert("تم رفض الطلب" + msg)
-// }
+function orderRefuse(i)
+{
+  // data[i].status == "rejected"
+  alert("تم رفض الطلب")
+}
 
-// function orderAccept(i)
-// {
-//   data[i].status == "approved"
-//     alert("تم الموافقه على الطلب" + msg)
-// }
+function orderAccept(i)
+{
+  // data[i].status == "approved"
+  alert("تم الموافقه على الطلب")
+}
 
   </script>
 </body>
