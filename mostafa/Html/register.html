@@ -3,77 +3,118 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Css/registerStyle.css">
+    <link rel="stylesheet" href="../Css/registerStyle copy.css">
     <script src="../JavaScript/register.js" ></script>
     <title>Registration Page</title>
 </head>
 <body>
-    <div class="logo">
-       <img src="../Resource/LOGO.png" >
-    </div>
-    <img src="../Resource/clients.png" name='user' id="user"  onclick="flipIcon()">
+
+        <div class="logo">
+            <img src="../Resource/LOGO1.png"  name='logo'>
+            <div class="imgs">
+                <img src="../Resource/clients.png" name='icon'  id="icon1" onclick="select(this.id)">
+                <span>اختار نوع الحساب</span>
+                <img src="../Resource/worker.png" name='icon' id="icon2"  onclick="select(this.id)">
+            </div>
+            
+         </div>
+
+         <div class="content">
+
+            <fieldset>
+                <legend>تسجيل البيانات</legend>
+                <form method="POST"  onsubmit="event.preventDefault();saveData();">
+                    <table style="text-align: center;">
     
-    <div class="registerForm">
-        <form>
-          <div class="contanier">
-              <span name='title'>الأسم</span>
-              <input type="text" id="name"   onfocus="clearAstric(this.id)" onblur="validation(this.id)"> 
-              <span name='error'>*</span>
-          </div>
-          <div class="contanier">
-            <span name='title' >العنوان</span>
-            <input type="text" id="address" onfocus="clearAstric(this.id)" onblur="validation(this.id)"> 
-            <span name='error'>*</span>
-        </div>
-        <div class="contanier">
-            <span name='title' >المحافظة</span>
-            <select id="governorate">
-                <option value="Loxor" selected>Loxor</option>
-                <option value="Alex">Alex</option>
-                <option value="Qena">Qena</option>
-                <option value="Aswan">Aswan</option>
-            </select>
-            <span name='title' >المنطقة</span>
-            <select id="region">
-                <option value="Loxor">Loxor</option>
-                <option value="Alex">Alex</option>
-                <option value="Qena">Qena</option>
-                <option value="Aswan">Aswan</option>
-            </select>
-
-        </div>
-        <div class="contanier">
-            <span name='title' >رقم التليفون</span>
-            <input type="number" id="phone" onfocus="clearAstric(this.id)" onblur="validation(this.id)"> 
-            <span name='error' id="phoneerror">*</span>
-        </div>
-
-        <div class="contanier">
-            <span name='title' >كلمة المرور</span>
-            <input type="password" id="password" onfocus="clearAstric(this.id)" onblur="validation(this.id)"> 
-            <span name='error' class="error">*</span>
-        </div>
-
-        <div class="contanier">
-            <span id="workerTitle" name='title' >المهنة</span>
-            <select id="workerJob">
-                <option value="1">كهربائى</option>
-                <option value="2">نجار</option>
-                <option value="3">سباك</option>
-                <option value="4">نقاش</option>
-                <option value="5">مبلط سراميك</option>
-                <option value="6">مبيض محارة</option>
-                <option value="7">فنى تبريد وتكييف</option>
-                <option value="9">فنى غسلات</option>
-                <option value="10">فنى سخانات</option>
-            </select>
-        </div>
-
-        <input type="submit" value="تسجيل البيانات "  class="submit" onclick="saveData()">
+                        <tr>
+                            
+                            <td colspan="3"> 
+                                <span><img src="../Resource/correct.png" name='iconCorrect' id="nameCorrect"></span>
+                                <input type="text" id="name" onfocus="focusElement(this.id)"  onblur="validation(this.id)">
+                            </td>
+                            <td ><span>الأسم</span></td>
+                        </tr>
         
-        </form>
-
-    </div>
+                        <tr>
+                            <td colspan="3" > 
+                                <span ><img src="../Resource/correct.png" name='iconCorrect' id="addressCorrect"></span>
+                                <input type="text" id="address" onfocus="focusElement(this.id)"  onblur="validation(this.id)">
+                            </td>
+                            <td ><span>العنوان</span></td>
+                        </tr>
+        
+                         <tr>
+                             <td>
+                                <!--
+                                    <span><img src="../Resource/correct.png" name='iconCorrect' id="regionCorrect"></span>
+                                -->
+                                <select id="region">
+                                    <option>---------</option>
+                                </select>
+                             </td>
+                             <td>المنطقة</td>
+                             <td>
+                                <select id="governorate" onchange="getRegions()">
+                                    <option>---------</option>
+                                    <option value=1>القاهرة</option>
+                                   <option value=2>الجيزة</option>
+                                   <option value=3>المنياء</option>
+                                   <option value=4>أسيوط</option>
+                                </select>
+                             </td>
+                             <td>المحافظة</td>
+                         </tr>
+        
+                         <tr>
+                            <td colspan="3"> 
+                                <span ><img src="../Resource/correct.png" name='iconCorrect' id="phoneCorrect"></span>
+                                <input type="text" id="phone" onfocus="focusElement(this.id)" onblur="validation(this.id)" >
+                            </td>
+                            <td ><span>رقم التليفون</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td colspan="3"> 
+                                <span><img src="../Resource/correct.png" name='iconCorrect' id="passwordCorrect"></span>
+                                <input type="password" id="password" onfocus="focusElement(this.id)" onblur="validation(this.id)" >
+                            </td>
+                            <td ><span>كلمة المرور</span></td>
+                        </tr>
+        
+                        <tr id="workerRow">
+                            <td colspan="3"> 
+                                <span><img src="../Resource/correct.png" name='iconCorrect' id="jobCorrect"></span>
+                                <select id="workerJob">
+                                    <option>---------</option>
+                                    <option value="1">فني كهرباء</option>
+                                    <option value="2">فني سباكة</option>
+                                    <option value="3">فني نقاشة</option>
+                                    <option value="4">فني نجارة</option>
+                                    <option value="5">فني محارة</option>
+                                    <option value="6">فني سيراميك</option>
+                                    <option value="7">فني غسلات</option>
+                                    <option value="9">فني سخانات</option>
+                                    <option value="10">فني تبريد</option>
+                                    <option value="11">مراكز صيانة</option>
+                                </select>
+                            </td>
+                            <td ><span>المهنة</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td colspan="4"> 
+                                <input type="submit" name="submit"  id="submit" value="تسجيل البيانات">
+                            </td>
+                        </tr>
+    
+                     </table>
+                </form>
+            </fieldset>
+         </div>
+         
+    
+    
+   
     
 </body>
 </html>
