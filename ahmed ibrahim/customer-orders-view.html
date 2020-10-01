@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>orders view</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div>
+  <div id="Logo">
+      <img src="Logo.png" width="120px" height="120px">
+      <p style="margin-top: -20px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">صنايعي</p>
+  </div>
+  <div id="User">
+      <img src="user.png" width="100px" height="100px">
+      <p id="username" style="margin-top: -15px;">اسم المستخدم</p>
+  </div>
+<img id="imghead" src="back.png">
+</div>
+  
+<h2>طلبات العميل</h2>
+<p>استعراض تفاصيل طلباتك السابقه والحاليه</p>
+<div id="parent">
+  <div class="tab" id="form">
+  <button class="tablinks" onclick="openTap(event, 'ordersAll')">كل الطلبات</button>
+  <button class="tablinks" onclick="openTap(event, 'ordersApproved')">الطلبات تمت الموافقه عليها</button>
+  <button class="tablinks" onclick="openTap(event, 'ordersInProcessing')">الطلبات قيد التنفيذ</button>
+  <button class="tablinks" onclick="openTap(event, 'ordersRejected')">طلبات تم رفضها</button>
+</div>
+
+<div id="ordersAll" class="tabcontent">
+  <h3>كل الطلبات</h3>
+</div>
+
+<div id="ordersApproved" class="tabcontent">
+  <h3>الطلبات تمت الموافقه عليها</h3>
+</div>
+
+<div id="ordersInProcessing" class="tabcontent">
+  <h3>الطلبات قيد التنفيذ</h3>
+</div>
+
+<div id="ordersRejected" class="tabcontent">
+    <h3>طلبات تم رفضها</h3>
+  </div>
+</div>
+
+<button style="height: 50px; width: 150px;" onclick="orderRefuse()">رفض الطلب</button>
+
+<script>
+    function openTap(evt, orderType) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(orderType).style.display = "block";
+      evt.currentTarget.className += " active";
+
+
+      
+
+
+    }
+
+    var data = [
+{
+  "رقم الطلب": "00001", 
+  "الفني": "Ahmed", 
+  "التليفون": "010056456464", 
+  "تاريخ الطلب": "01-12-2017",
+  "حالة الطلب": "مسوده",
+  "رفض ؟؟": "زرار",
+
+},{
+  "رقم الطلب": "00002", 
+  "الفني": "mohamed", 
+  "التليفون": "010056234464", 
+  "تاريخ الطلب": "01-12-2017",
+  "حالة الطلب": "مسوده",
+  "رفض ؟؟": "Button",
+
+},{
+  "رقم الطلب": "00003", 
+  "الفني": "saad", 
+  "التليفون": "010056464", 
+  "تاريخ الطلب": "01-12-2017",
+  "حالة الطلب": "معتمد",
+  "رفض ؟؟": "Button",
+}
+];
+
+var tableBody = "";
+var columns = [];
+
+// Create the header record.
+tableBody = tableBody + "<tr>";
+for(var prop in data[0]) {
+  if(data[0].hasOwnProperty(prop)) {
+    tableBody = tableBody + ("<th>" + prop + "</th>");
+    
+    columns.push(prop);
+  }
+}
+
+tableBody = tableBody + "</tr>";
+
+data.forEach(function(row) {
+  tableBody = tableBody + "<tr>";
+
+  columns.forEach(function(cell) {
+
+    tableBody = tableBody + "<td>" + row[cell] + "</td>";
+  });
+  
+  tableBody = tableBody + "</tr>";
+});
+
+$(".tabcontent").append(tableBody);
+
+</script>
+</body>
+</html>

@@ -6,57 +6,83 @@
     <meta name="keywords" content="مبيض محاره -شركه خدمات منزليه - اعمال الصرف الصحى - صنيعيه - فنين ">
     <meta name="author" content="Muhammed Ashraf">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./homepagestyle.css">
+    <link rel="stylesheet" href="../css/homepagestyle.css">
     <title>sanay3y</title>
     <script>
         /*
         this script for swap image 
         */
+     
+        //alert(sessionStorage.getItem("currenLogintUser"))
         var currentImage = 1
         var timerID;
-        var imageArray = new Array(2)
-        imageArray[0]="./images/mainImage_8.jpg";
-        imageArray[1]="./images/mainImage.jpg";
+        var imageArray = new Array(3)
+        imageArray[0]="../images/mainImage_8.jpg";
+        imageArray[1]="../images/mainImage.jpg";        
+        imageArray[2]="../images/mainImage_5.jpg";
         function flip()
         {
             currentImage++;
-            if(currentImage == 2) 
+            if(currentImage == 3) 
                 currentImage=0;
             //image[3] is main image    
-            document.images[3].src= imageArray[currentImage];	
+            document.images[1].src= imageArray[currentImage];	
        }
-        
-        
         </script>
 </head>
 
-<body>
+<body onload="timerID=setInterval('flip()',2000)">
     <!--Header -->
     <div class="homeheader">  
-        <a href= "./homepage.htm"><img src="./images/LOGO.png" width="50" height="50" id="logo"></a>  
+        <a href= "../html/homepage.htm"><img src="../images/LOGO.png" width="50" height="50" id="logo"></a>  
         <ul>
-            <li><a href="./homepage.htm">الرئيسية</a> </li>
+            <li><a href="../html/homepage.htm">الرئيسية</a> </li>
             <li><a href="#whowe">من نحن</a> </li>
             <li><a href="#servies">خدماتنا</a> </li>
-            <li><a href="./Login.htm">تسجيل الدخول </a> </li>
+            <li><a href="../html/Login.htm">تسجيل الدخول </a> </li>
+            <li><a href="#privacy">سياسه الخصوصية</a></li>
+            <li><a href="#ContacWithUs"> اتصل بنا</a></li>
         </ul> 
+        <!-- <ul>
+            <li><a href="#"><img src="./images/facebooklogo_1.png" id="facebooklogo" width="25px" height="25px"></a></li>
+            <li><a href="#"><img src="./images/twitterlogo.png" id="twitterlogo" width="25px" height="25px"></a></li>
+        </ul> -->
+        
     </div>
-    <!--nav bar-->
-    <div class="navbar">
-        <a href="#privacy">سياسه الخصوصية</a>
-        <a href="#ContacWithUs"> اتصل بنا</a>
-        <a href="#"><img src="./images/facebooklogo.png" width="25px" height="25px"></a>
-        <a href="#"><img src="./images/twitterlogo.jpg" width="25px" height="25px"></a>
-    </div>
- 
-    <!--content  -->
-    <div class="rowimg">
-        <img src="./images/mainImage_8.jpg" onmouseover="timerID=setInterval('flip()',500)" onmouseout="clearInterval(timerID);">
-    </div>  
 
-   <hr/>
-   <!--who we-->
-    <h1 id="whowe" >من نحن</h1>
+    <!-- swap image  -->
+    <div class="swaping">
+        <img src="../images/mainImage_8.jpg">
+    </div>
+    <hr id="line" />
+    <!--Servies -->
+<div id="servies" >
+    <h1 >خدماتنا </h1>
+        
+    <!-- Photo Grid -->
+    <div class="imgServies"> 
+        <span > 
+        <img src="../images/السباك.png" style="width:200px" title="فنى سباكه">
+        <img src="../images/الكهريائى.png" style="width:200px" title="فنى كهرباء">
+        <img src="../images/النقاش.jpg" style="width:200px" title="فنى نقاشة">
+        <img src="../images/صورة النجار.jpg" style="width:200px" title="فنى نجارة">
+        <img src="../images/محارة.jpg" style="width:200px" title="فنى محارة">
+        </span>
+    </div>   
+    <div class="imgServies">
+        <span>
+            <img src="../images/مبلط سيراميك.jpg" style="width:200px" title="فنى سيراميك">
+            <img src="../images/صيانة-غسالات-دمنهور.jpg" style="width:200px" title="فنى غسلات">
+            <img src="../images/فنى سخانات.jpg" style="width:200px" title="فنى سخانات">
+            <img src="../images/فني-تبريد-وتكييف.jpg" style="width:200px" title="فنى تبريد">
+            <img src="../images/مراكز صيانة.jpg" style="width:200px" title="مراكز صيانة">
+        </span>  
+    </div>
+</div>    
+<hr/>
+<!--who we-->
+<div id="whowe"> 
+    <h1>من نحن</h1>
     <h2 style="text-align: center;">
         <span  style="color: #3366ff;">نحن شركه الصنيعية للخدمات المنزلية</span>
     </h2>
@@ -75,32 +101,8 @@
         </pre>   
         </span>
     </p>
-    
-    <hr/>
-    <!--Servies -->
-    <h1 id="servies">خدماتنا </h1>
-    
-    <!-- Photo Grid -->
-<div class="row"> 
-    <span > 
-      <img src="./images/السباك.png" style="width:200px" title="فنى سباكه">
-      <img src="./images/الكهريائى.png" style="width:200px" title="فنى كهرباء">
-      <img src="./images/النقاش.jpg" style="width:200px" title="فنى نقاشة">
-      <img src="./images/صورة النجار.jpg" style="width:200px" title="فنى نجارة">
-      <img src="./images/محارة.jpg" style="width:200px" title="فنى محارة">
-    </span>
-</div>   
-<div class="row">
-    <span>
-        <img src="./images/مبلط سيراميك.jpg" style="width:200px" title="فنى سيراميك">
-        <img src="./images/صيانة-غسالات-دمنهور.jpg" style="width:200px" title="فنى غسلات">
-        <img src="./images/فنى سخانات.jpg" style="width:200px" title="فنى سخانات">
-        <img src="./images/فني-تبريد-وتكييف.jpg" style="width:200px" title="فنى تبريد">
-        <img src="./images/مراكز صيانة.jpg" style="width:200px" title="مراكز صيانة">
-    </span>  
-</div>
-
-
+</div>    
+<hr/>    
 <!--Start Footer -->
 <div class="main-content">
     <div class="left box">
@@ -113,8 +115,8 @@
                 كما أننا لا نطلب عنوان البريد الإلكتروني فى حالة قيام العميل أو الزائر بالتعليق على أي تدوينة داخل موقعنا بل نعتبر ذلك بيانات شخصية ونحن لا نطلب أي بيانات شخصية من العميل أطلاقاً
             </p>
             <div class="social">
-                <a href="#"><img src="./images/facebooklogo.png" width="25px" height="25px"></a>
-                <a href="#"><img src="./images/twitterlogo.jpg" width="25px" height="25px"></a>  
+                <a href="#"><img src="../images/facebooklogo.png" width="25px" height="25px"></a>
+                <a href="#"><img src="../images/twitterlogo.jpg" width="25px" height="25px"></a>  
             </div>
         </div>
     </div>
@@ -135,13 +137,7 @@
                 <span class="text">abc@example.com</span>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <div class="bottom">
-            <span class="credit">Created By Sanay3y Team | </span>
-            <span class="far fa-copyright"></span> 2020 All rights reserved.
-        </div> 
+        
     </div>
     <div class="right box">
         <h2 id="ContacWithUs">اتصل بنا </h2>
@@ -167,6 +163,10 @@
         </div> 
                       
     </div>
+</div> 
+<div class="bottom">
+    <span class="credit">Created By Sanay3y Team | </span>
+    <span class="far fa-copyright"></span> 2020 All rights reserved.
 </div>        
 <!--End Footer-->
 </body>

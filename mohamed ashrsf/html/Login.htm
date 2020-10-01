@@ -6,51 +6,47 @@
     <meta name="keywords" content="مبيض محاره -شركه خدمات منزليه - اعمال الصرف الصحى - صنيعيه - فنين ">
     <meta name="author" content="Muhammed Ashraf">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./homepagestyle.css">
+    <link rel="stylesheet" href="../css/homepagestyle.css">
     <title>sanay3y</title>
+    <script src="../javascript/login.js" type="text/javascript">
+
+    </script>
 </head>
 <body>
     <!--Header -->
     <div class="homeheader">  
-        <a href= "./homepage.htm"><img src="./images/LOGO.png" width="50" height="50" id="logo"></a>  
+        <a href= "../html/homepage.htm"><img src="../images/LOGO.png" width="50" height="50" id="logo"></a>  
         <ul>
-            <li><a href="./homepage.htm">الرئيسية</a> </li>
-            <li><a href="./homepage.htm#whowe">من نحن</a> </li>
-            <li><a href="./homepage.htm#servies">خدماتنا</a> </li>
-            <li><a href="#login">تسجيل الدخول</a> </li>
+            <li><a href="../html/homepage.htm">الرئيسية</a> </li>
+            <li><a href="../html/homepage.htm#whowe">من نحن</a> </li>
+            <li><a href="../html/homepage.htm#servies">خدماتنا</a> </li>
+            <li><a href="#login">تسجيل الدخول </a> </li>
+            <li><a href="#privacy">سياسه الخصوصية</a></li>
+            <li><a href="#ContacWithUs"> اتصل بنا</a></li>
         </ul> 
-    </div>
-    <!--nav bar-->
-    <div class="navbar">
-        <a href="#privacy">سياسه الخصوصية</a>
-        <a href="#ContacWithUs"> اتصل بنا</a>
-        <a href="#"><img src="./images/facebooklogo.png" width="25px" height="25px"></a>
-        <a href="#"><img src="./images/twitterlogo.jpg" width="25px" height="25px"></a>
+        <!-- <ul>
+            <li><a href="#"><img src="./images/facebooklogo_1.png" id="facebooklogo" width="25px" height="25px"></a></li>
+            <li><a href="#"><img src="./images/twitterlogo.png" id="twitterlogo" width="25px" height="25px"></a></li>
+        </ul> -->
     </div>
     <br>
     <br>
     <!--Login Form -->
-    <div class="login">    
-        <form id="login" method="POST" action="">    
+    <div class="login" >    
+        <form id="login" name='myform' onsubmit="setAction(this)" action="#" >    
             <label><b>من فضلك قم بإدخل اسم المستخدم او الإيميل     
             </b>    
             </label>    
-            <input type="text" name="Uname" id="Uname" placeholder="ادخل اسم المستخدم او الايميل">    
+            <input type="text"   id="Uname" placeholder="ادخل اسم المستخدم او الايميل" required>    
             <br><br>    
             <label><b>من فضلك  قم بإدخل الباسورد     
             </b>    
             </label>    
-            <input type="Password" name="Pass" id="Pass" placeholder="ادخل الباسورد">    
+            <input type="Password"  id="Pass" placeholder="ادخل الباسورد" required>    
             <br><br>    
-            <input type="button" name="log" id="log" value="تسجيل الدخول">       
+            <input type="submit" name="log" id="log" value="تسجيل الدخول" >       
             <br><br>    
-            <input type="checkbox" id="check">    
-            <span>تذكرنى</span>  
-            <br><br>
-            <input type="radio" id="signCustomer" name="user" >    
-            <span>الدخول كأعميل</span>  
-            <input type="radio" id="signTechnical" name="user">    
-            <span>الدخول كأفنى</span>         
+            <input type="button" id="goSigup" value="تسجيل مستخدم جديد" onclick="goSignUp()">        
         </form>     
     </div>    
 
@@ -69,8 +65,8 @@
                     كما أننا لا نطلب عنوان البريد الإلكتروني فى حالة قيام العميل أو الزائر بالتعليق على أي تدوينة داخل موقعنا بل نعتبر ذلك بيانات شخصية ونحن لا نطلب أي بيانات شخصية من العميل أطلاقاً
                 </p>
                 <div class="social">
-                    <a href="#"><img src="./images/facebooklogo.png" width="25px" height="25px"></a>
-                    <a href="#"><img src="./images/twitterlogo.jpg" width="25px" height="25px"></a>  
+                    <a href="#"><img src="../images/facebooklogo.png" width="25px" height="25px"></a>
+                    <a href="#"><img src="../images/twitterlogo.jpg" width="25px" height="25px"></a>  
                 </div>
             </div>
         </div>
@@ -91,13 +87,7 @@
                     <span class="text">abc@example.com</span>
                 </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <div class="bottom">
-                <span class="credit">Created By Sanay3y Team | </span>
-                <span class="far fa-copyright"></span> 2020 All rights reserved.
-            </div> 
+            
         </div>
         <div class="right box">
             <h2 id="ContacWithUs">اتصل بنا </h2>
@@ -123,7 +113,11 @@
             </div> 
                         
         </div>
-    </div>        
+    </div>  
+    <div class="bottom">
+        <span class="credit">Created By Sanay3y Team | </span>
+        <span class="far fa-copyright"></span> 2020 All rights reserved.
+    </div>       
     <!--End Footer-->
 </body>
 </html>

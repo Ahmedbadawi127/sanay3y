@@ -26,7 +26,7 @@
     list-style: none;
     padding: 0;
     overflow: hidden;
-    float: left;
+    float: right;
 }
 .homeheader  ul li{
     float:right;
@@ -41,7 +41,7 @@
 }
 
 .homeheader  ul li a:visited{
-    color:salmon;
+    color:blue;
 }
 .homeheader  ul li a:active{
     color:#0000FF;
@@ -53,52 +53,50 @@
 /* end header*/
 
 
-/* start navbar*/
-.navbar {
+/* style image swap */
+.swaping img{
+    width: 1320px;
+    height: 380px;
     overflow: hidden;
-    background-color:yellowgreen;
-
-  }
-.navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 15px 16px;
-    text-decoration: none;
+    float: right;
+           
 }
-.navbar a img{
-    float: left;
-    background-color: #f1f1f1; 
-
-}
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-  }  
-/* end navbar */
-
-/* style image*/
-.rowimg img{
-    width: 1330px;
-    height: 400px;    
-}
-.rowimg img:hover{
+.swaping img:hover{
     background-color: wheat;
 }
+#line
+{
+  margin-top: 400px;
+}
+#servies{
+  margin-top: 10px;
+  background-color: beige;
 
-.row img {
+}
+
+/* image in servies*/
+.imgServies{
+ background-color:beige; 
+}
+.imgServies img {
     margin-top: 8px;
     vertical-align: middle;
     width: 200%;
     padding: 26px;
+    
 }
-.row img:hover{
+.imgServies img:hover{
     background-color:teal;
 
 }
+/*end style image */
 
-/*end style image */ 
+/* who we */
+#whowe
+{
+  background-color: beige;
+}
+ 
 
 /* start footer*/
 .main-content{
@@ -186,7 +184,7 @@
 .right form .btn{
     margin-top: 10px;
 }
-  .right form .btn button{
+.right form .btn button{
     height: 40px;
     width: 100%;
     border: none;
@@ -195,20 +193,21 @@
     font-size: 1.0625rem;
     font-weight: 500;
   }
-  .right form .btn button:hover{
+.right form .btn button:hover{
     background: #000;
   }
-  .bottom {  
+.bottom {  
     padding: 10px;
-    font-size: .900rem;
+    font-size: .800rem;
     background-color:burlywood;
     text-align: center;
+    width: 1313px;
   }
-  .bottom  span{
+.bottom  span{
     color: black;
   }
 
-  .bottom center a:hover{
+.bottom center a:hover{
     text-decoration: underline;
   }
   @media screen and (max-width: 900px) {
@@ -236,11 +235,10 @@
     padding: 80px;  
     background: dimgrey;  
     border-radius: 15px ;  
-      
 }  
   
 label{  
-color: #08ffd1;  
+color:aliceblue;  
 font-size: 17px;  
 }  
 #Uname{  
@@ -265,9 +263,15 @@ border: none;
 border-radius: 17px;  
 padding-left: 7px;  
 color: blue;  
-
-
 }  
+#goSigup{
+width: 300px;  
+height: 30px;  
+border: none;  
+border-radius: 17px;  
+padding-left: 7px;  
+color: blue; 
+}
 .login #login span{  
 color: white;  
 font-size: 17px;  
