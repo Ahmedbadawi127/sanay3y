@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Home Customer</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
+    <script src='Scripts.js'></script> 
+   
+    <style>
+     #Logo 
+     {         
+         float : right;
+     }
+     #User
+     {
+         float: left;
+     }
+     body
+     {
+         
+         text-align: center;
+     }
+ 
+
+ #btnget
+{
+    font-size: x-large;
+    font-weight: bold;
+    border-radius: 15px;
+    background-color: lightskyblue ;
+    border: none;
+    
+    cursor: pointer;
+    color: white;
+    outline: none;
+    /* width: 100px;
+    height: 70px; */
+    margin-right: auto;
+    
+    
+    /* vertical-align: middle;
+   /* margin-left: 350px;
+    text-align: right;
+    margin-left: 200px; */
+       
+} 
+#btnquery
+{
+    margin-left: auto;
+    font-size: x-large;
+    font-weight: bold;
+    border-radius: 15px;
+    background-color: lightskyblue ;
+    border: none;
+
+    cursor: pointer;
+    color: white;
+    outline: none;
+}
+#btnget:active
+{
+    color: blue;
+    
+}
+#btnquery:active
+{
+    color: blue;
+   
+}
+
+
+#imgget,#imgquery
+{
+ float: left;
+ /*width: 100px;
+ height: 50px;*/
+
+}
+
+
+#im:hover
+{
+    
+   /* border: dotted;*/
+    /*/background-color: lightgrey;*/
+   cursor: grab;
+   
+}
+
+#im
+{  
+    
+    margin-right: 30px;
+    float: right;
+}
+   
+    </style>
+</head>
+<body style="text-align: center;" >
+    <div id="Logo">
+        <img src="Logo.png" width="120px" height="120px">
+        <p style="margin-top: -20px;font-weight: bold;">صنايعي</p>
+    </div>
+    <div id="User">
+        <img src="user.png" width="100px" height="100px">
+        <p id="username" style="margin-top: -15px;">اسم المستخدم</p>
+    </div>
+    <br><br><br><br><br><br><br>
+    <!-- <h1>-----------------------------------------------------------------------------------------------------------------------------</h1> -->
+
+        <button type="button" onclick="" id="btnquery" >استعلام عن طلب<img id="imgquery" src="search.png" width="100px" height="50px"></button>
+        <button type="button" onclick="showimg()" id="btnget" >تقديم طلب جديد<img id="imgget" src="request.png" width="100px" height="50px"></button>
+        <br><br>
+        <div>
+         <span style="text-align: center;padding-right: 1000px;" hidden>
+            <a href="Customer Order.html"><img id="im" src="سباكة.png" style="width:270px" title="فني سباكة" onclick="send_job_tech(this.title)"></a> 
+            <a href="Customer Order.html"> <img id="im" src="كهرباء.png" style="width:170px" title="فني كهرباء" onclick="send_job_tech(this.title)"> </a> 
+            <a href="Customer Order.html"> <img id="im"  src="نقاشة.png" style="width:150px" title="فني نقاشة"  onclick="send_job_tech(this.title)"></a> 
+            <a href="Customer Order.html"> <img id="im"  src="نجارة.png" style="width:170px" title="فني نجارة"  onclick="send_job_tech(this.title)"> </a> 
+            <a href="Customer Order.html"> <img id="im"  src="محارة.png" style="width:250px" title="فني محارة" onclick="send_job_tech(this.title)"></a>       
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <a href="Customer Order.html">  <img id="im" src="سيراميك.png" style="width:240px" title="فني سيراميك" onclick="send_job_tech(this.title)"></a> 
+            <a href="Customer Order.html">  <img id="im" src="غسالات.png" style="width:300px" title="فني غسالات" onclick="send_job_tech(this.title)"></a> 
+            <a href="Customer Order.html"> <img id="im" src="سخانات.png" style="width:200px" title="فني سخانات" onclick="send_job_tech(this.title)"></a> 
+            <a href="Customer Order.html"> <img id="im" src="تبريد.png" style="width:200px" title="فني تبريد" onclick="send_job_tech(this.title)"></a> 
+            <a href="Customer Order.html"> <img id="im" src="مراكز.png" style="width:200px" title="مراكز صيانة" onclick="send_job_tech(this.title)"></a> 
+        </span>
+       </div> 
+       
+
+       
+       
+     
+    <script>
+
+       function showimg()
+       {
+           alert("برجاء اختيار المهنة المطلوبة")
+           document.getElementsByTagName("span")[0].hidden=false;
+           
+       }
+       function send_job_tech(j)
+       {
+           job=j;
+         sessionStorage.setItem("job",  job); 
+     //  console.log(JSON.parse(sessionStorage.getItem("order")))
+    }
+  
+    </script>
+</body>
+</html>
