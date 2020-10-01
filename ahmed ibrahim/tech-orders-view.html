@@ -1,10 +1,10 @@
 <html lang="en">
-<head>
+<headTech>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tech</title>
     <link rel="stylesheet" href="styles.css">
-</head>
+</headTech>
 <body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -17,7 +17,7 @@
       <img src="user.png" width="100px" height="100px">
       <p id="username" style="margin-top: -15px;">اسم المستخدم</p>
   </div>
-<img id="imghead" src="back.png">
+<img id="imgheadTech" src="back.png">
 </div>
 
 <h2>طلبات العملاء الخاصه بك</h2>
@@ -26,19 +26,46 @@
 <div id="work">
     <h3>كل الطلبات</h3>
 </div>
-  <div id="test"></div>
-  
+<!-- <div id="allOrders"></div> -->
+<div id="parent-2">
+  <div class="tab" dir="rtl">
+  <button class="tablinksTec" onclick="openTapTech(event, 'allOrdersTec')">كل الطلبات</button>
+  <button class="tablinksTec" onclick="openTapTech(event, 'ordersApprovedTec')">الطلبات تمت الموافقه عليها</button>
+</div>
+<div id="allOrdersTec" class="tabcontentTec">
+  <br>
+</div>
+
+<div id="ordersApprovedTec" class="tabcontentTec">
+  <br>
+</div>
+
   <p></p>
   <script>
+    function openTapTech(evt, orderType) {
+      var i, tabcontentTec, tablinksTec;
+      tabcontentTec = document.getElementsByClassName("tabcontentTec");
+      for (i = 0; i < tabcontentTec.length; i++) {
+        tabcontentTec[i].style.display = "none";
+      }
+      tablinksTec = document.getElementsByClassName("tablinksTec");
+      for (i = 0; i < tablinksTec.length; i++) {
+        tablinksTec[i].className = tablinksTec[i].className.replace(" active", "");
+      }
+      document.getElementById(orderType).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
 
-var head = [
+
+
+var headTech = [
     "رقم الطلب",
     "العميل",
     "التليفون",
     "محافظه",
     "منطقه",
     "تاريخ الطلب",
-    "العنوان",
+    "تاريخ الصيانه",
     "وصف المشكله",
 ]
 
@@ -80,135 +107,159 @@ var head = [
   if (this.readyState == 4 && this.status == 200) {
     var data = JSON.parse(xmlhttp.responseText);
 
-   for(i = 0; i < 3; i++)
+   for(i = 0; i < data.length; i++)
    {
-      Func(data.data, head, i)
+      // if(myData[i].status != "rejected")
+        Func(data, headTech, i)
    }
   }
 };
 
-xmlhttp.open("GET", "mydata.json", true);
+xmlhttp.open("GET", "http://m0stafaeladawy01.pythonanywhere.com/ClientsOrder/", true);
 xmlhttp.send();
 
 
-
-function Func(data, head, i)
+function Func(data, headTech, i)
 {
+  var tdheadTechStyle = 'style="background-color: #4CAF50; color: white; text-align: center; height: 50px; width: 50px;  border: solid 2px; white"';
+  var tdDataStyle = 'style="text-align: center; height: 50px; width: 200px;"';
+  var buttonStyle = 'style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; width: 260px;"';
   var templateString =
-    '<table style="border: 3px solid grey;" dir="rtl" align="right" class="tableCard">'
+    '<table style="border: 3px solid grey;" dir="rtl" align="center" class="tableCard">'
     + '<tr>'
-    + '<td colspan="1">' + head[0] + '</td>' 
-    + '<td colspan="1">' +data[i].orderNumber+'</td>'
+    + '<td ' + tdheadTechStyle +'>' + headTech[0] + '</td>' 
+    + '<td ' + tdDataStyle + '>' +data[i].id+'</td>'
 
-    + '<td colspan="1">' + head[1] + '</td>' 
-    + '<td colspan="1">' +data[i].customer+'</td>'
+    + '<td ' + tdheadTechStyle +'>' + headTech[1] + '</td>' 
+    + '<td ' + tdDataStyle + '>' +data[i].cus_name+'</td>'
 
-    + '<td colspan="1">' + head[2] + '</td>' 
-    + '<td colspan="1">' +data[i].phone+'</td>'
-
-    + '<td colspan="1" rowspan="2"><button style="height: 100px; width: 150px;" onclick="orderAccept()">الموافقه على الطلب</button></td>'
+    + '<td ' + tdheadTechStyle +'>' + headTech[2] + '</td>' 
+    + '<td ' + tdDataStyle + '>' +data[i].cus_phone+'</td>'
+    + '<td></td>'
     + '</tr>' 
     
 
     + '<tr>'
-    + '<td colspan="1">' + head[3] + '</td>' 
-    + '<td colspan="1">' +data[i].governent+'</td>'
+    + '<td ' + tdheadTechStyle +'>' + headTech[3] + '</td>' 
+    + '<td ' + tdDataStyle + '>' +data[i].o_governorate+'</td>'
 
-    + '<td colspan="1">' + head[4] + '</td>' 
-    + '<td colspan="1">' +data[i].area+'</td>'
+    + '<td ' + tdheadTechStyle +'>' + headTech[4] + '</td>' 
+    + '<td ' + tdDataStyle + '>' +data[i].o_region+'</td>'
 
-    + '<td colspan="1">' + head[5] + '</td>' 
-    + '<td colspan="1">' +data[i].orderDate+'</td>'
+    + '<td ' + tdheadTechStyle +'>' + headTech[5] + '</td>' 
+    + '<td ' + tdDataStyle + '>' +data[i].o_date+'</td>'
 
-    + '<td colspan="1"></td>' 
+    + '<td ></td>' 
     + '</tr>' 
 
 
     + '<tr>'
-    + '<td colspan="1">' + head[6] + '</td>' 
-    + '<td colspan="5">' +data[i].address+'</td>'
-    + '<td colspan="1" rowspan="1"><button style="height: 50px; width: 150px;" onclick="orderRefuse()">رفض الطلب</button></td>'
+    + '<td  ' + tdheadTechStyle +'>' + headTech[6] + '</td>' 
+    + '<td ' + tdDataStyle + ' colspan="5">' +data[i].o_excute_date+'</td>'
+    + '<td><button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 26px; margin: 4px 2px; cursor: pointer;  width: 260px;" onclick="orderAccept(i)">الموافقه على الطلب</button></td>'
     + '</tr>' 
     
 
     + '<tr>'
-    + '<td colspan="1">' + head[7] + '</td>' 
-    + '<td colspan="6">' +data[i].discription+'</td>'
+    + '<td  ' + tdheadTechStyle +'>' + headTech[7] + '</td>' 
+    + '<td ' + tdDataStyle + 'colspan="5">' +data[i].o_desc+'</td>'
+    + '<td><button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;  width: 260px;" onclick="orderRefuse(i)">رفض الطلب</button></td>'
     + '</tr>' 
 
     + '<tr>'
-    + '<td colspan="7"><p><br></p>'
+    + '<td><p><br></p>'
     + '</td>'
     + '</tr>' 
 
 
     + '</table>' + '<br>';
-$('#test').append(templateString);
-}
 
-// $.each(data, function(i){
-//     var templateString =
-//     '<table style="border: 3px solid grey;" dir="rtl" align="right" class="tableCard">'
-//     + '<tr>'
-//     + '<td colspan="1">' + head[0] + '</td>' 
-//     + '<td colspan="1">' +data[i].orderNumber+'</td>'
+    var templateStringApproved = 
+    '<table style="border: 3px solid grey;" dir="rtl" align="center" class="tableCard">'
+    + '<tr>'
+    + '<td ' + tdheadTechStyle +'>' + headTech[0] + '</td>' 
+    + '<td ' + tdDataStyle + '>' +data[i].id+'</td>'
 
-//     + '<td colspan="1">' + head[1] + '</td>' 
-//     + '<td colspan="1">' +data[i].customer+'</td>'
+    + '<td ' + tdheadTechStyle +'>' + headTech[1] + '</td>' 
+    + '<td ' + tdDataStyle + '>' +data[i].cus_name+'</td>'
 
-//     + '<td colspan="1">' + head[2] + '</td>' 
-//     + '<td colspan="1">' +data[i].phone+'</td>'
-
-//     + '<td colspan="1" rowspan="2"><button style="height: 100px; width: 150px;" onclick="orderAccept()">الموافقه على الطلب</button></td>'
-//     + '</tr>' 
+    + '<td ' + tdheadTechStyle +'>' + headTech[2] + '</td>' 
+    + '<td ' + tdDataStyle + '>' +data[i].cus_phone+'</td>'
+    + '<td></td>'
+    + '</tr>' 
     
 
-//     + '<tr>'
-//     + '<td colspan="1">' + head[3] + '</td>' 
-//     + '<td colspan="1">' +data[i].governent+'</td>'
+    + '<tr>'
+    + '<td ' + tdheadTechStyle +'>' + headTech[3] + '</td>' 
+    + '<td ' + tdDataStyle + '>' +data[i].o_governorate+'</td>'
 
-//     + '<td colspan="1">' + head[4] + '</td>' 
-//     + '<td colspan="1">' +data[i].area+'</td>'
+    + '<td ' + tdheadTechStyle +'>' + headTech[4] + '</td>' 
+    + '<td ' + tdDataStyle + '>' +data[i].o_region+'</td>'
 
-//     + '<td colspan="1">' + head[5] + '</td>' 
-//     + '<td colspan="1">' +data[i].orderDate+'</td>'
+    + '<td ' + tdheadTechStyle +'>' + headTech[5] + '</td>' 
+    + '<td ' + tdDataStyle + '>' +data[i].o_date+'</td>'
 
-//     + '<td colspan="1"></td>' 
-//     + '</tr>' 
+    + '<td ></td>' 
+    + '</tr>' 
 
 
-//     + '<tr>'
-//     + '<td colspan="1">' + head[6] + '</td>' 
-//     + '<td colspan="5">' +data[i].address+'</td>'
-//     + '<td colspan="1" rowspan="1"><button style="height: 50px; width: 150px;" onclick="orderRefuse()">رفض الطلب</button></td>'
-//     + '</tr>' 
+    + '<tr>'
+    + '<td  ' + tdheadTechStyle +'>' + headTech[6] + '</td>' 
+    + '<td ' + tdDataStyle + ' colspan="5">' +data[i].o_excute_date+'</td>'
+    + '<td ></td>' 
+    + '</tr>' 
     
 
-//     + '<tr>'
-//     + '<td colspan="1">' + head[7] + '</td>' 
-//     + '<td colspan="6">' +data[i].discription+'</td>'
-//     + '</tr>' 
+    + '<tr>'
+    + '<td  ' + tdheadTechStyle +'>' + headTech[7] + '</td>' 
+    + '<td ' + tdDataStyle + 'colspan="5">' +data[i].o_desc+'</td>'
+    + '<td ></td>' 
+    + '</tr>' 
 
-//     + '<tr>'
-//     + '<td colspan="7"><p><br></p>'
-//     + '</td>'
-//     + '</tr>' 
+    + '<tr>'
+    + '<td><p><br></p>'
+    + '</td>'
+    + '</tr>' 
 
 
-//     + '</table>' + '<br>';
-// $('#test').append(templateString);
-// })
+    + '</table>' + '<br>';
+    
+    var status = data[i].o_status;
+    var tecName = data[i].tech_name;
+    // console.log(data[i].status)
+    var currentLoginUser = "محمد إبراهيم أحمد"
+    // var CurrentLoginUser = sessionStorage.getItem('CurrentLoginUser')
+    // && tecName == currentLoginUser
+    console.log(status)
+    function allOrdersTech(status)
+    {
+        $('#allOrdersTec').append(templateString);
+    }
 
-function orderRefuse()
-{
-    // alert("تم رفض الطلب")
-    alert(JSON.stringify(this.orderNumber, null, 4));
+    function allOrdersApprovedTech(Status)
+    {
+      if(Status == "معتمد")
+        $('#ordersApprovedTec').append(templateStringApproved);
+    }
+
+    allOrdersTech(status)
+    allOrdersApprovedTech(status)
+
 }
+// var msg ='<br>' + 'رقم: ' + data[i].orderNumber + '<br>بإسم: ' + data[i].customer
 
-function orderAccept()
-{
-    alert("تم الموافقه على الطلب")
-}
+// function orderRefuse(i)
+// {
+//   data[i].status == "rejected"
+//     alert("تم رفض الطلب" + msg)
+// }
+
+// function orderAccept(i)
+// {
+//   data[i].status == "approved"
+//     alert("تم الموافقه على الطلب" + msg)
+// }
+
   </script>
 </body>
 </html>
