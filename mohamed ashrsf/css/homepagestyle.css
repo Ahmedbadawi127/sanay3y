@@ -1,0 +1,282 @@
+
+
+*{
+    direction: rtl;
+}
+/* start header*/
+.homeheader{    
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 5px 5px;
+}
+/* logo */
+.homeheader a img{
+    float: right;
+    color:cyan;
+    text-align: center;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+ /* list */
+.homeheader  ul{
+    list-style: none;
+    padding: 0;
+    overflow: hidden;
+    float: right;
+}
+.homeheader  ul li{
+    float:right;
+    padding: 10px;
+}
+
+/* color links in menu*/
+.homeheader  ul li a:hover{
+    color: #FF00FF;
+    background-color:white;
+    padding: 15px;
+}
+
+.homeheader  ul li a:visited{
+    color:blue;
+}
+.homeheader  ul li a:active{
+    color:#0000FF;
+}
+
+.homeheader  ul li a:link{
+    color:#0000FF;
+}
+/* end header*/
+
+
+/* style image swap */
+.swaping img{
+    width: 1320px;
+    height: 380px;
+    overflow: hidden;
+    float: right;
+           
+}
+.swaping img:hover{
+    background-color: wheat;
+}
+#line
+{
+  margin-top: 400px;
+}
+#servies{
+  margin-top: 10px;
+  background-color: beige;
+
+}
+
+/* image in servies*/
+.imgServies{
+ background-color:beige; 
+}
+.imgServies img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 200%;
+    padding: 26px;
+    
+}
+.imgServies img:hover{
+    background-color:teal;
+
+}
+/*end style image */
+
+/* who we */
+#whowe
+{
+  background-color: beige;
+}
+ 
+
+/* start footer*/
+.main-content{
+    display:flex;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    background:darkgray;
+  }
+.main-content .box{
+    flex-basis: 50%;
+    padding: 10px 20px;
+  }
+.box h2{
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.box .content{
+    margin: 20px 0 0 0;
+    position: relative;
+}
+.box .content:before{
+    position: absolute;
+    content: '';
+    top: -10px;
+    height: 2px;
+    width: 100%;
+    background: #1a1a1a;
+}
+.box .content:after{
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 15%;
+    background:  darkred;
+    top: -10px;
+}
+.left .content p{
+    text-align: justify;
+}
+ 
+ 
+  .center .content .fas{
+    font-size: 1.4375rem;
+    background: #1a1a1a;
+    height: 45px;
+    width: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+  }
+  .center .content .fas:hover{
+    background: #f12020;
+  }
+.center .content .text{
+    font-size: 1.0625rem;
+    font-weight: 500;
+    padding-left: 10px;
+}
+.center .content .phone{
+    margin: 15px 0;
+  }
+.right form .text{
+    font-size: 1.0625rem;
+    margin-bottom: 2px;
+    color: black;
+  }
+.right form .msg{
+    margin-top: 30px;
+  }
+.right form input, .right form .msgForm{
+    width: 100%;
+    font-size: 1.0625rem;
+    background: white;
+    padding-left: 10px;
+    border: 1px solid #222222;
+  }
+.right form input:focus, .right form .msgForm:focus{
+    outline-color: #3498db;
+}
+.right form input{
+    height: 35px;
+}
+.right form .btn{
+    margin-top: 10px;
+}
+.right form .btn button{
+    height: 40px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #f12020;
+    font-size: 1.0625rem;
+    font-weight: 500;
+  }
+.right form .btn button:hover{
+    background: #000;
+  }
+.bottom {  
+    padding: 10px;
+    font-size: .800rem;
+    background-color:burlywood;
+    text-align: center;
+    width: 1313px;
+  }
+.bottom  span{
+    color: black;
+  }
+
+.bottom center a:hover{
+    text-decoration: underline;
+  }
+  @media screen and (max-width: 900px) {
+    footer{
+      position: relative;
+      bottom: 0px;
+    }
+    .main-content{
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+    .main-content .box{
+      margin: 5px 0;
+    }
+  }
+
+  /* end footer*/
+
+ /* login form style*/ 
+.login{  
+    width: 382px;  
+    overflow: hidden;  
+    margin: auto;  
+    margin: 20 0 0 450px;  
+    padding: 80px;  
+    background: dimgrey;  
+    border-radius: 15px ;  
+}  
+  
+label{  
+color:aliceblue;  
+font-size: 17px;  
+}  
+#Uname{  
+width: 300px;  
+height: 30px;  
+border: none;  
+border-radius: 3px;  
+padding-left: 8px;  
+}  
+#Pass{  
+width: 300px;  
+height: 30px;  
+border: none;  
+border-radius: 3px;  
+padding-left: 8px;  
+  
+}  
+#log{  
+width: 300px;  
+height: 30px;  
+border: none;  
+border-radius: 17px;  
+padding-left: 7px;  
+color: blue;  
+}  
+#goSigup{
+width: 300px;  
+height: 30px;  
+border: none;  
+border-radius: 17px;  
+padding-left: 7px;  
+color: blue; 
+}
+.login #login span{  
+color: white;  
+font-size: 17px;  
+}  
+.login #login a{  
+float: right;  
+background-color: grey;  
+}  

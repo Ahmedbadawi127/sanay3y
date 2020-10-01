@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=" شركه الصنيعيه للخدمات المنزلية تقدم لك افضل شركة تنظيف بمصر من أجل تنظيف منزلك بالاضافةالى افضل الفنين فى الكهرباء و النجاره واعمال الصرف الصحى و مبيض محاره و اعمال التبريد والتكييف و اعمال النقاشه   "> 
+    <meta name="keywords" content="مبيض محاره -شركه خدمات منزليه - اعمال الصرف الصحى - صنيعيه - فنين ">
+    <meta name="author" content="Muhammed Ashraf">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/homepagestyle.css">
+    <title>sanay3y</title>
+    <script src="../javascript/login.js" type="text/javascript">
+
+    </script>
+</head>
+<body>
+    <!--Header -->
+    <div class="homeheader">  
+        <a href= "../html/homepage.htm"><img src="../images/LOGO.png" width="50" height="50" id="logo"></a>  
+        <ul>
+            <li><a href="../html/homepage.htm">الرئيسية</a> </li>
+            <li><a href="../html/homepage.htm#whowe">من نحن</a> </li>
+            <li><a href="../html/homepage.htm#servies">خدماتنا</a> </li>
+            <li><a href="#login">تسجيل الدخول </a> </li>
+            <li><a href="#privacy">سياسه الخصوصية</a></li>
+            <li><a href="#ContacWithUs"> اتصل بنا</a></li>
+        </ul> 
+        <!-- <ul>
+            <li><a href="#"><img src="./images/facebooklogo_1.png" id="facebooklogo" width="25px" height="25px"></a></li>
+            <li><a href="#"><img src="./images/twitterlogo.png" id="twitterlogo" width="25px" height="25px"></a></li>
+        </ul> -->
+    </div>
+    <br>
+    <br>
+    <!--Login Form -->
+    <div class="login" >    
+        <form id="login" name='myform' onsubmit="setAction(this)" action="#" >    
+            <label><b>من فضلك قم بإدخل اسم المستخدم او الإيميل     
+            </b>    
+            </label>    
+            <input type="text"   id="Uname" placeholder="ادخل اسم المستخدم او الايميل" required>    
+            <br><br>    
+            <label><b>من فضلك  قم بإدخل الباسورد     
+            </b>    
+            </label>    
+            <input type="Password"  id="Pass" placeholder="ادخل الباسورد" required>    
+            <br><br>    
+            <input type="submit" name="log" id="log" value="تسجيل الدخول" >       
+            <br><br>    
+            <input type="button" id="goSigup" value="تسجيل مستخدم جديد" onclick="goSignUp()">        
+        </form>     
+    </div>    
+
+    <br>
+    <br>
+    <hr/>
+    <!--Start Footer -->
+    <div class="main-content">
+        <div class="left box">
+            <h2 id="privacy"> سياسية الخصوصية </h2>
+            <div class="content">
+                    <p>
+                    نحن شركة الصنيعية للخدمات المنزلية لدينا افضل الفننين لتصليح و حل اى مشكلة بالخدمات المنزلية ,
+                    نحن لا نقوم بأحصاء أو جمع أي بيانات تخص السادة الزائرين أو المتعاقدين معنا فنحن لدينا خصوصية المحافظة على المعلومات فقط التى نتلقاها عندما يتصل بنا العميل ليطلب خدمة من خدمات المنزلية  
+                    والشيئ الوحيد الذي نقوم بطلبه من العميل هو معرفة مكانة لكي نتمكن من الوصول إليه وتأدية الخدمة التي يريد الحصول عليها
+                    كما أننا لا نطلب عنوان البريد الإلكتروني فى حالة قيام العميل أو الزائر بالتعليق على أي تدوينة داخل موقعنا بل نعتبر ذلك بيانات شخصية ونحن لا نطلب أي بيانات شخصية من العميل أطلاقاً
+                </p>
+                <div class="social">
+                    <a href="#"><img src="../images/facebooklogo.png" width="25px" height="25px"></a>
+                    <a href="#"><img src="../images/twitterlogo.jpg" width="25px" height="25px"></a>  
+                </div>
+            </div>
+        </div>
+
+        <div class="center box">
+            <h2>العنوان</h2>
+            <div class="content">
+                <div>
+                    <span class="fas fa-map-marker-alt"></span>
+                    <span class="text">محافظة المنيا - المنيا </span>
+                </div>
+                <div class="phone">
+                    <span class="fas fa-phone-alt"></span>
+                    <span class="text">+089-765432100</span>
+                </div>
+                <div class="email">
+                    <span class="fas fa-envelope"></span>
+                    <span class="text">abc@example.com</span>
+                </div>
+            </div>
+            
+        </div>
+        <div class="right box">
+            <h2 id="ContacWithUs">اتصل بنا </h2>
+            <div class="content">
+                <form action="#">
+                    <div class="email">
+                        <div class="text">
+                            الايميل *
+                        </div>
+                        <input type="text" required>
+                    </div>
+                    <div class="msg">
+                        <div class="text">
+                            اترك رسالة *
+                        </div>
+                        <textarea id=".msgForm" rows="3" cols="50" required></textarea> 
+                        <br/>
+                        <div class="btn">
+                            <input type="submit" value="Send">
+                        </div>
+                    </div>
+                </form>
+            </div> 
+                        
+        </div>
+    </div>  
+    <div class="bottom">
+        <span class="credit">Created By Sanay3y Team | </span>
+        <span class="far fa-copyright"></span> 2020 All rights reserved.
+    </div>       
+    <!--End Footer-->
+</body>
+</html>
