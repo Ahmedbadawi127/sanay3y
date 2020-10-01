@@ -19,30 +19,33 @@
   </div>
 <img id="imghead" src="back.png">
 </div>
-  
+
 <h2>طلبات العميل</h2>
 <p>استعراض تفاصيل طلباتك السابقه والحاليه</p>
 <div id="parent">
-  <div class="tab" id="form">
-  <button class="tablinks" onclick="openTap(event, 'ordersAll')">كل الطلبات</button>
-  <button class="tablinks" onclick="openTap(event, 'ordersApproved')">الطلبات تمت الموافقه عليها</button>
-  <button class="tablinks" onclick="openTap(event, 'ordersInProcessing')">الطلبات قيد التنفيذ</button>
-  <button class="tablinks" onclick="openTap(event, 'ordersRejected')">طلبات تم رفضها</button>
+  <div class="tab">
+  <button class="tablinks" onclick="openTapCus(event, 'allOrdersCus')">كل الطلبات</button>
+  <button class="tablinks" onclick="openTapCus(event, 'ordersInprocessingCus')">الطلبات قيد التنفيذ</button>
+  <button class="tablinks" onclick="openTapCus(event, 'ordersApprovedCus')">الطلبات تمت الموافقه عليها</button>
+  <button class="tablinks" onclick="openTapCus(event, 'ordersRejectedCus')">طلبات تم رفضها</button>
 </div>
 
-<div id="ordersAll" class="tabcontent">
+<div id="allOrdersCus" class="tabcontent">
   <h3>كل الطلبات</h3>
 </div>
 
-<div id="ordersApproved" class="tabcontent">
-  <h3>الطلبات تمت الموافقه عليها</h3>
-</div>
 
-<div id="ordersInProcessing" class="tabcontent">
+<div id="ordersInprocessingCus" class="tabcontent">
   <h3>الطلبات قيد التنفيذ</h3>
 </div>
 
-<div id="ordersRejected" class="tabcontent">
+
+<div id="ordersApprovedCus" class="tabcontent">
+  <h3>الطلبات تمت الموافقه عليها</h3>
+</div>
+
+
+<div id="ordersRejectedCus" class="tabcontent">
     <h3>طلبات تم رفضها</h3>
   </div>
 </div>
@@ -50,7 +53,7 @@
 <button style="height: 50px; width: 150px;" onclick="orderRefuse()">رفض الطلب</button>
 
 <script>
-    function openTap(evt, orderType) {
+    function openTapCus(evt, orderType) {
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tabcontent");
       for (i = 0; i < tabcontent.length; i++) {
@@ -62,67 +65,164 @@
       }
       document.getElementById(orderType).style.display = "block";
       evt.currentTarget.className += " active";
-
-
-      
-
-
     }
 
-    var data = [
-{
-  "رقم الطلب": "00001", 
-  "الفني": "Ahmed", 
-  "التليفون": "010056456464", 
-  "تاريخ الطلب": "01-12-2017",
-  "حالة الطلب": "مسوده",
-  "رفض ؟؟": "زرار",
+    var headCus = [
+    "رقم الطلب",
+    "الفني",
+    "التليفون",
+    "تاريخ الطلب",
+    "تاريخ الصيانه",
+    "حالة الطلب"
+]
 
-},{
-  "رقم الطلب": "00002", 
-  "الفني": "mohamed", 
-  "التليفون": "010056234464", 
-  "تاريخ الطلب": "01-12-2017",
-  "حالة الطلب": "مسوده",
-  "رفض ؟؟": "Button",
+var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var data = JSON.parse(xmlhttp.responseText);
 
-},{
-  "رقم الطلب": "00003", 
-  "الفني": "saad", 
-  "التليفون": "010056464", 
-  "تاريخ الطلب": "01-12-2017",
-  "حالة الطلب": "معتمد",
-  "رفض ؟؟": "Button",
-}
-];
-
-var tableBody = "";
-var columns = [];
-
-// Create the header record.
-tableBody = tableBody + "<tr>";
-for(var prop in data[0]) {
-  if(data[0].hasOwnProperty(prop)) {
-    tableBody = tableBody + ("<th>" + prop + "</th>");
-    
-    columns.push(prop);
+   for(i = 0; i < data.length; i++)
+   {
+      // if(myData[i].status != "rejected")
+        Func(data, headCus, i)
+   }
   }
+};
+
+xmlhttp.open("GET", "http://m0stafaeladawy01.pythonanywhere.com/ClientsOrder/", true);
+xmlhttp.send();
+
+
+//     var data = [
+// {
+//   "رقم الطلب": "00001",
+//   "الفني": "Ahmed",
+//   "التليفون": "010056456464",
+//   "تاريخ الطلب": "01-12-2017",
+//   "حالة الطلب": "مسوده",
+//   "رفض ؟؟": "زرار",
+
+// },{
+//   "رقم الطلب": "00002",
+//   "الفني": "mohamed",
+//   "التليفون": "010056234464",
+//   "تاريخ الطلب": "01-12-2017",
+//   "حالة الطلب": "مسوده",
+//   "رفض ؟؟": "Button",
+
+// },{
+//   "رقم الطلب": "00003",
+//   "الفني": "saad",
+//   "التليفون": "010056464",
+//   "تاريخ الطلب": "01-12-2017",
+//   "حالة الطلب": "معتمد",
+//   "رفض ؟؟": "Button",
+// }
+// ];
+
+
+
+// var tableBody = "";
+// var columns = [];
+
+// // Create the header record.
+// tableBody = tableBody + "<tr>";
+// for(var prop in myData[0]) {
+//   if(myData[0].hasOwnProperty(prop)) {
+//     tableBody = tableBody + ("<th>" + prop + "</th>");
+
+//     columns.push(prop);
+//   }
+// }
+
+// tableBody = tableBody + "</tr>";
+
+// myData.forEach(function(row) {
+//   tableBody = tableBody + "<tr>";
+
+//   columns.forEach(function(cell) {
+
+//     tableBody = tableBody + "<td>" + row[cell] + "</td>";
+//   });
+
+//   tableBody = tableBody + "</tr>";
+// });
+
+// $(".tabcontent").append(tableBody);
+
+function Func(data, headCus, i)
+{
+  var tdheadCusStyle = 'style="background-color: #4CAF50; color: white; text-align: center; height: 50px; width: 150px;  border: solid 2px; white"';
+  var tdDataStyle = 'style="text-align: center; height: 50px; width: 200px;"';
+  var templateStringAllOrdersCus =
+    '<table style="border: 3px solid grey;" dir="rtl" align="center" class="tableCard" width="200px">'
+    + '<tr>'
+    + '<td ' + tdheadCusStyle +'>' + headCus[0] + '</td>' 
+    + '<td ' + tdheadCusStyle +'>' + headCus[1] + '</td>' 
+    + '<td ' + tdheadCusStyle +'>' + headCus[2] + '</td>' 
+    + '<td ' + tdheadCusStyle +'>' + headCus[3] + '</td>' 
+    + '<td ' + tdheadCusStyle +'>' + headCus[4] + '</td>' 
+    + '<td ' + tdheadCusStyle +'>' + headCus[5] + '</td>' 
+    + '</tr>' 
+    
+
+    + '<tr>'
+    + '<td ' + tdDataStyle + '>' +data[i].id+'</td>'
+    + '<td ' + tdDataStyle + '>' +data[i].tech_name+'</td>'
+    + '<td ' + tdDataStyle + '>' +data[i].tech_phone+'</td>'
+    + '<td ' + tdDataStyle + '>' +data[i].o_date+'</td>'
+    + '<td ' + tdDataStyle + '>' +data[i].o_excute_date+'</td>'
+    + '<td ' + tdDataStyle + '>' +data[i].o_status+'</td>'
+    + '</tr>' 
+    + '</table>' + '<br>';
+
+    
+    var status = data[i].o_status;
+    var cusName = data[i].cus_name;
+    var currentLoginUser = "على على على"
+    // var CurrentLoginUser = sessionStorage.getItem('CurrentLoginUser')
+    // && tecName == currentLoginUser
+    // function allOrdersCus(Status)
+    // {
+    //   if(Status != "rejected")
+    //     $('#allOrdersCus').append(templateStringAllOrdersCus);
+    // }
+
+console.log(status)
+    var templateStringInprocessingCus = templateStringAllOrdersCus;
+    var templateStringApprovedCus = templateStringAllOrdersCus;
+    var templateStringRejectedCus = templateStringAllOrdersCus;
+
+    function allOrdersCus(Status)
+    {
+        $('#allOrdersCus').append(templateStringAllOrdersCus);
+    }
+
+    function ordersInprocessingCus(Status)
+    {
+      if(Status == "قيدالتنفيذ")
+        $('#ordersInprocessingCus').append(templateStringInprocessingCus);
+    }
+
+    function ordersApprovedCus(Status)
+    {
+      if(Status == "معتمد")
+        $('#ordersApprovedCus').append(templateStringApprovedCus);
+    }
+
+    function ordersRejectedCus(Status)
+    {
+      if(Status == "مرفوض")
+        $('#ordersRejectedCus').append(templateStringRejectedCus);
+    }
+
+    allOrdersCus(status)
+    ordersInprocessingCus(status)
+    ordersApprovedCus(status)
+    ordersRejectedCus(status)
+
 }
 
-tableBody = tableBody + "</tr>";
-
-data.forEach(function(row) {
-  tableBody = tableBody + "<tr>";
-
-  columns.forEach(function(cell) {
-
-    tableBody = tableBody + "<td>" + row[cell] + "</td>";
-  });
-  
-  tableBody = tableBody + "</tr>";
-});
-
-$(".tabcontent").append(tableBody);
 
 </script>
 </body>
